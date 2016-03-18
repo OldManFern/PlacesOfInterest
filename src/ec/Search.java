@@ -1,6 +1,8 @@
 package ec;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +29,21 @@ public class Search extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		if(request.getParameter("visited") != null){
+			
+
+        	request.setAttribute("results", "<center><h1>DID NOT PICK ANYTHING!!!!!!</h1><center>");
+
+		
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/EC/Search");
+			dispatcher.forward(request,response);
+    	
+		}
+		else{
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/EC/Search");
+	    	dispatcher.forward(request,response);
+		}
 	}
 
 	/**

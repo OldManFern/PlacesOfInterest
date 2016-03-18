@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         
@@ -109,6 +111,7 @@
                          <div class="well">
                             <form action="" method="post">
                              <div class="row input-group">
+                             	<input type="hidden" name ="visited" value ="true"/>
                                 <input type="text" name="lat" id="lat" class="form-control" placeholder="Latitude"/>
                                 <span class="input-group-addon">,</span>
                                 <input type="text" name="lon" id="lon" class="form-control" placeholder="Longitude"/>
@@ -137,11 +140,9 @@
                 </div>
                 <div id="results" class="row top-margin-50">
                     <div id="listOfResults" class="well col-md-6">
-                        <ul id="results-list">
-                            <li class=" result-item list-group-item">Example1</li>
-                            <li class=" result-item list-group-item">Example2</li>
-                        
-                        </ul>
+                    
+                    <%= (String)request.getAttribute("results") %>
+
 
                     </div>
                     <div id="map" class="map">
